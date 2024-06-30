@@ -69,12 +69,12 @@
 
             if (/android/i.test(userAgent)) {
                 // User is on an Android device
-                downloadLink.href = './files/TypeNet.apk';
+                downloadLink.href = './files/cvtypenet-1.3.0.apk';
                 linkText.textContent = 'Download Mobile App';
                 instructionText.textContent = 'Open in Desktop to download Desktop Client';
             } else {
                 // User is on a non-Android device, assume Windows or other desktop
-                downloadLink.href = './files/TypeNet-v1.5.0.exe';
+                downloadLink.href = './files/TypeNet-1.6.0.exe';
                 linkText.textContent = 'Download Desktop Client   TypeNet V1.5.0';
                 instructionText.textContent = 'Open in Android to download Mobile APK';
             }
