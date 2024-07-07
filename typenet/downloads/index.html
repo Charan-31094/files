@@ -25,62 +25,64 @@
         <div class="text-center mb-12">
             <h1 class="text-4xl text-white font-bold mb-3">CV TypeNet</h1>
             <p class="text-xl text-gray-300">Take full control of your computer with ease using CV TypeNet from your mobile device.</p>
+            <br>
+            <h3 class=" text-gray-300">Download the latest versions of the TypeNet client for your mobile device and desktop computer.</h3>
         </div>
         <div class="flex flex-wrap justify-center">
             <div class="w-full md:w-1/2 xl:w-1/3 p-6 animate__animated animate__fadeInLeft">
                 <div class="bg-gray-800 rounded-lg shadow-xl p-5 card transform transition duration-500 hover:shadow-2xl">
-                    <div class="flex flex-col items-center mt-6">
-                        <a id="downloadLink" class="bg-blue-500 text-white font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:bg-blue-700">
-                            <span id="linkText">Download App</span>
-                        </a>
-                        <p id="instructionText" class="text-gray-400 mt-4"></p>
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="w-full md:w-1/2 xl:w-1/3 p-6 animate__animated animate__fadeInRight">
-                <div class="bg-gray-800 rounded-lg shadow-xl p-5 card transform transition duration-500 hover:shadow-2xl">
                     <div class="flex flex-row items-center">
-                        <div class="flex-shrink pr-4">
-                            <div class="rounded-full p-5 bg-green-600"><i class="fas fa-desktop fa-2x fa-inverse"></i></div>
-                        </div>
+                        <!-- <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-5 bg-blue-600"><i class="fas fa-mobile-alt fa-2x fa-inverse"></i></div>
+                        </div> -->
                         <div class="flex-1 text-right md:text-center">
-                            <h5 class="font-bold uppercase text-gray-400">Desktop Client</h5>
-                            <p class="text-gray-600">Install the TypeNet client on your computer to enable connectivity with your mobile device, allowing you to remotely manage and control your desktop with ease.</p>
+                            <h5 class="font-bold uppercase text-gray-400">Mobile App</h5>
+                            <p class="text-gray-600" id="mob-context">Transform your mobile device into a remote control for your computer, offering a seamless interface for managing tasks and operations from anywhere.</p>
+                            <br>
+                            <h5 id="mob-version" class="font-bold uppercase text-gray-400">Version: 1.0.0</h5>
                         </div>
                     </div>
                     <div class="flex justify-center mt-6">
-                        <a href="./files/TypeNet.exe" download   class="bg-green-500 text-white font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:bg-green-700">
+                        <a id="mob-dwnd"  download class="bg-blue-500 text-white font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:bg-blue-700">
+                            Get Mobile App
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 xl:w-1/3 p-6 animate__animated animate__fadeInRight">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-5 card transform transition duration-500 hover:shadow-2xl">
+                    <div class="flex flex-row items-center">
+                        <!-- <div class="flex-shrink pr-4">
+                            <div class="rounded-full p-5 bg-green-600"><i class="fas fa-desktop fa-2x fa-inverse"></i></div>
+                        </div> -->
+                        <div class="flex-1 text-right md:text-center">
+                            <h5 class="font-bold uppercase text-gray-400">Desktop Client</h5>
+                            <p id="win-context" class="text-gray-600">Install the TypeNet client on your computer to enable connectivity with your mobile device, allowing you to remotely manage and control your desktop with ease.</p><br>
+
+                            <h5 id="win-version" class="font-bold uppercase text-gray-400">Version: 1.0.0</h5>
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-6">
+                        <a id="win-dwnd"  download   class="bg-green-500 text-white font-bold py-3 px-5 rounded-full transition duration-300 ease-in-out transform hover:bg-green-700">
                             Get Desktop Client
                         </a>
                     </div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
+    <script >
+        const WinLatestVersion = "1.7.0";
+        const MobLatestVersion = "1.7.1";
+        document.getElementById("win-version").innerHTML = `Version: ${WinLatestVersion}`;
+        document.getElementById("mob-version").innerHTML = `Version: ${MobLatestVersion}`;
+        document.getElementById("mob-dwnd").href = `./files/cvtypenet-${MobLatestVersion}.apk`;
+        document.getElementById("win-dwnd").href = `./files/TypeNet-${WinLatestVersion}.exe`;
+        document.getElementById("mob-context").innerHTML = "Transform your mobile device into a remote control for your computer, offering a seamless interface for managing tasks and operations from anywhere.";
+        document.getElementById("win-context").innerHTML = "Install the TypeNet client on your computer to enable connectivity with your mobile device, allowing you to remotely manage and control your desktop with ease.";
+    </script>
     <footer class="bg-gray-800 text-white text-center p-4">
         <p>&copy; 2024 CV TypeNet. All rights reserved.</p>
     </footer>
-    <script>
-        function detectDeviceAndSetDownloadLink() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var downloadLink = document.getElementById('downloadLink');
-            var linkText = document.getElementById('linkText');
-            var instructionText = document.getElementById('instructionText');
-
-            if (/android/i.test(userAgent)) {
-                // User is on an Android device
-                downloadLink.href = './files/cvtypenet-1.7.1.apk';
-                linkText.textContent = 'Download Mobile App 1.7.1';
-                instructionText.textContent = 'A latest version of Desktop CLient is avaliable for Windows open this site Desktop to download it.';
-            } else {
-                // User is on a non-Android device, assume Windows or other desktop
-                downloadLink.href = './files/TypeNet-1.7.0.exe';
-                linkText.textContent = 'Download Desktop Client   TypeNet V1.7.0';
-                instructionText.textContent = 'Open in Android to download Mobile APK   If You get Not Verified Popup Click on More Info and then Run Anyway.';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', detectDeviceAndSetDownloadLink);
-    </script>
 </body>
 </html>
